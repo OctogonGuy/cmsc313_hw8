@@ -1,6 +1,7 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 #include <iostream>
+#include <iomanip>
 
 class Matrix {
 	public:
@@ -55,9 +56,9 @@ class Matrix {
 		friend std::ostream& operator<<(std::ostream& os, const Matrix& matrix) {
 			for (int i = 0; i < matrix.rows; i++) {
 				for (int j = 0; j < matrix.columns; j++) {
-					os << matrix.entries[i][j] << " ";
+					os << std::setw(5) << matrix.entries[i][j] << " ";
 				}
-				os << std::endl;
+				if (i < matrix.rows - 1) os << std::endl;
 			}
 			return os;
 		}

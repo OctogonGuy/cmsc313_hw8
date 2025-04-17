@@ -39,7 +39,7 @@ Matrix initMatrix(int rows, int columns, int entries[rows][columns]) {
 void printMatrix(Matrix matrix) {
 	for (int i = 0; i < matrix.rows; i++) {
 		for (int j = 0; j < matrix.columns; j++) {
-			printf("%d ", matrix.entries[i][j]);
+			printf("%5d ", matrix.entries[i][j]);
 		}
 		printf("\n");
 	}
