@@ -3,9 +3,12 @@
 ## Authoring
 
 Alexander Gill
-UMBC
+
+UMBC student
+
 CMSC 313 - Spring 2025 - Mon/Wed 8:30AM-9:45AM
-Homework 8 - Due 4/16/25
+
+Homework 8 - Due 4/19/2025
 
 ## Purpose of software
 
@@ -15,8 +18,8 @@ This is a library that allows user to create matrices and perform operations on 
 
 - `matrixc.h`: Library file for C
 - `matrixcpp.h`: Library file for C++
-- `test_matrixc.c`: Test file for C library that contains example usage
-- `test_matrixcpp.cpp`: Test file for C++ library that contains example usage
+- `test.c`: Test file for C library that contains example usage
+- `test.cpp`: Test file for C++ library that contains example usage
 
 ## Build instructions
 
@@ -29,13 +32,13 @@ The build command should be in the following format:
 For example, to build the C++ library using the C++ test file, you would write
 
 ```
-g++ matrixcpp.h test_matrixcpp.cpp -o test_matrix
+g++ matrixcpp.h test.cpp -o test
 ```
 
 The executable can then be run using the command
 
 ```
-./test_matrix
+./test
 ```
 
 ## Testing methodology
@@ -44,7 +47,7 @@ Both the C and C++ test files show how to instantiate matrices and perform opera
 
 ### C
 
-When using the C library, the user must call the `initMatrix` function to create a matrix. The function takes three arguments: the number of rows, the number of columns, and a pointer to an array of integers.
+When using the C library, the user must call the `initMatrix` function to create a matrix. The function takes three arguments: the number of rows, the number of columns, and a 2D array of integers that represents the entries in the matrix. It returns a `Matrix` struct that contains the matrix data. For example:
 
 ```
 Matrix A = initMatrix(2, 2, (int[2][2]) {
@@ -53,10 +56,10 @@ Matrix A = initMatrix(2, 2, (int[2][2]) {
         });
 ```
 
-To perform operations on the matrix, the user must call the appropriate function. For example, to add two matrices, the user would call the `addMatrix` function:
+To perform operations on the matrix, the user must call the appropriate function which returns the resulting matrix. For example, to add two matrices, the user would call the `add` function:
 
 ```
-Matrix C = addMatrix(A, B);
+Matrix C = add(A, B);
 ```
 
 To print the matrix, the user would call the `printMatrix` function:
@@ -67,7 +70,7 @@ printMatrix(A);
 
 ### C++
 
-When using the C++ library, the user must create a matrix object using the `Matrix` class. The constructor takes two arguments: the number of rows and the number of columns. You then use the equals operator to assign values to the elements of the matrix:
+When using the C++ library, the user must create a matrix object using the `Matrix` class. The constructor takes two arguments: the number of rows and the number of columns. The user would then use the equals operator to assign values of the entries of the matrix to a 2D array that represents these values:
 
 ```
 Matrix A(2, 2);
